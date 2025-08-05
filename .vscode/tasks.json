@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "javac",
+      "args": [
+        "--module-path", "lib/javafx-sdk-21.0.8/lib",
+        "--add-modules", "javafx.controls,javafx.fxml",
+        "-d", "bin",
+        "src/*.java"
+      ]
+    }
+  ]
+}
