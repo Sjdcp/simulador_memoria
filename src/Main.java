@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 <<<<<<< HEAD
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-//intento
+//ultimo comentario
 =======
 import javafx.scene.layout.*; //;-;
 import javafx.stage.Stage; //Turip ip ip ip
