@@ -50,7 +50,7 @@ public class GestorMemoria {
         actualizarUI.run();
     }
 
-    private void revisarCola(Runnable actualizarUI) {
+    private void revisarCola(Runnable actualizarUI) { 
         Iterator<Proceso> iterator = enEspera.iterator();
         while (iterator.hasNext()) {
             Proceso proceso = iterator.next();
