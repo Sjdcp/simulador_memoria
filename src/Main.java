@@ -3,7 +3,7 @@ import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene; // prueba
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.layout.*; //;-;
 import javafx.stage.Stage; //Turip ip ip ip
 
 public class Main extends Application {
