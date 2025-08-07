@@ -5,7 +5,7 @@ import javafx.scene.Scene; // prueba
 import javafx.scene.control.*;
 import javafx.scene.layout.*; //;-;
 import javafx.stage.Stage; //Turip ip ip ip
-
+//prueba 2
 public class Main extends Application {
     private GestorMemoria gestor = new GestorMemoria();
     private ListView<String> listaEjecucion = new ListView<>();
