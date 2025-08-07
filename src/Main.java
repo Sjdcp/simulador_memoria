@@ -2,11 +2,10 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
+//intento
 public class Main extends Application {
     private GestorMemoria gestor = new GestorMemoria();
     private ListView<String> listaEjecucion = new ListView<>();
