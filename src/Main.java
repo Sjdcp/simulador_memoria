@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
+import javafx.stage.Stage; //Turip ip ip ip
 
 public class Main extends Application {
     private GestorMemoria gestor = new GestorMemoria();
