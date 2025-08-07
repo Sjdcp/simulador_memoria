@@ -3,9 +3,15 @@ import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+<<<<<<< HEAD
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 //intento
+=======
+import javafx.scene.layout.*; //;-;
+import javafx.stage.Stage; //Turip ip ip ip
+//prueba 2
+>>>>>>> 56d82363c5e3cd9b0209db16c05588ee700b0d66
 public class Main extends Application {
     private GestorMemoria gestor = new GestorMemoria();
     private ListView<String> listaEjecucion = new ListView<>();
