@@ -3,20 +3,17 @@ import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-<<<<<<< HEAD
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-//ultimo comentario
-=======
-import javafx.scene.layout.*; //;-;
-import javafx.stage.Stage; //Turip ip ip ip
-//prueba 2
->>>>>>> 56d82363c5e3cd9b0209db16c05588ee700b0d66
+
 public class Main extends Application {
     private GestorMemoria gestor = new GestorMemoria();
-    private ListView<String> listaEjecucion = new ListView<>();
-    private ListView<String> listaEspera = new ListView<>();
+    private ListView<Label> listaEjecucion = new ListView<>();
+    private ListView<Label> listaEspera = new ListView<>();
+    private ListView<Label> listaFinalizados = new ListView<>();
     private Label memoriaLabel = new Label();
+    private ProgressBar memoriaBar = new ProgressBar(0);
 
     public static void main(String[] args) {
         launch(args);
@@ -56,16 +53,23 @@ public class Main extends Application {
 
         memoriaLabel.setText("Memoria Disponible: " + gestor.getMemoriaDisponible() + " MB");
 
-        HBox form = new HBox(10, nombreField, memoriaField, duracionField, agregarBtn);
-        HBox listas = new HBox(20,
-                new VBox(new Label("En ejecución"), listaEjecucion),
-                new VBox(new Label("En espera"), listaEspera)
-        );
+        memoriaBar.setPrefWidth(300);
+        memoriaBar.setStyle("-fx-accent: #2196F3;");
 
-        root.getChildren().addAll(form, memoriaLabel, listas);
+        HBox form = new HBox(10, nombreField, memoriaField, duracionField, agregarBtn);
+
+        VBox ejecucionBox = new VBox(new Label("En ejecución"), listaEjecucion);
+        VBox esperaBox = new VBox(new Label("En espera"), listaEspera);
+        VBox finalizadosBox = new VBox(new Label("Finalizados"), listaFinalizados);
+
+        HBox listas = new HBox(20, ejecucionBox, esperaBox, finalizadosBox);
+
+        VBox memoriaBox = new VBox(5, memoriaLabel, memoriaBar);
+
+        root.getChildren().addAll(form, memoriaBox, listas);
 
         stage.setTitle("Simulador de Gestión de Memoria");
-        stage.setScene(new Scene(root, 700, 400));
+        stage.setScene(new Scene(root, 950, 500));
         stage.show();
     }
 
@@ -73,12 +77,34 @@ public class Main extends Application {
         Platform.runLater(() -> {
             listaEjecucion.getItems().clear();
             for (Proceso p : gestor.getEnEjecucion()) {
-                listaEjecucion.getItems().add(p.toString());
+                Label label = new Label(p.toString());
+                label.setTextFill(Color.GREEN);
+                listaEjecucion.getItems().add(label);
             }
 
             listaEspera.getItems().clear();
             for (Proceso p : gestor.getEnEspera()) {
-                listaEspera.getItems().add(p.toString());
+                Label label = new Label(p.toString());
+                label.setTextFill(Color.ORANGE);
+                listaEspera.getItems().add(label);
+            }
+
+            listaFinalizados.getItems().clear();
+            for (Proceso p : gestor.getFinalizados()) {
+                Label label = new Label(p.toString());
+                label.setTextFill(Color.GRAY);
+                listaFinalizados.getItems().add(label);
+            }
+
+            double usoMemoria = (double) (gestor.getMemoriaTotal() - gestor.getMemoriaDisponible()) / gestor.getMemoriaTotal();
+            memoriaBar.setProgress(usoMemoria);
+
+            if (usoMemoria < 0.5) {
+                memoriaBar.setStyle("-fx-accent: green;");
+            } else if (usoMemoria < 0.8) {
+                memoriaBar.setStyle("-fx-accent: orange;");
+            } else {
+                memoriaBar.setStyle("-fx-accent: red;");
             }
 
             memoriaLabel.setText("Memoria Disponible: " + gestor.getMemoriaDisponible() + " MB");
@@ -93,3 +119,4 @@ public class Main extends Application {
         alert.showAndWait();
     }
 }
+
