@@ -1,5 +1,4 @@
 //Estas son las librerias que se utilizan
-import java.awt.Color;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
