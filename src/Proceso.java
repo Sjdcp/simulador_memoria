@@ -1,9 +1,9 @@
 public class Proceso {
     private static int contadorId = 1;
-    private final int pid;
-    private final String nombre;
-    private final int memoria;
-    private final int duracion;
+    private final int pid;//Identificador único del proceso
+    private final String nombre;//Nombre del proceso
+    private final int memoria;//en MB
+    private final int duracion;//en segundos
 
     public Proceso(String nombre, int memoria, int duracion) {
         this.pid = contadorId++;
