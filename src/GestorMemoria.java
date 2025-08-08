@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+//Muestra memoria disponible
 
 public class GestorMemoria {
     private final int memoriaTotal = 1024; // 1 GB
@@ -11,7 +12,7 @@ public class GestorMemoria {
     public GestorMemoria() {
         this.memoriaDisponible = memoriaTotal;
     }
-
+//Memoria disponible
     public List<Proceso> getEnEjecucion() { return enEjecucion; }
     public List<Proceso> getEnEspera() { return enEspera; }
     public int getMemoriaDisponible() { return memoriaDisponible; }
