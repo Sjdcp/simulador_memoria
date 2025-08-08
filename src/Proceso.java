@@ -12,6 +12,7 @@ public class Proceso {
         this.duracion = duracion;
     }
 
+    
     public int getMemoria() {
         return memoria;
     }
