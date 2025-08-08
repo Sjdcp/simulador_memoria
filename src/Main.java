@@ -1,3 +1,5 @@
+//Estas son las librerias que se utilizan
+import java.awt.Color;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -7,6 +9,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+//ultimo comentario
 public class Main extends Application {
     private GestorMemoria gestor = new GestorMemoria();
     private ListView<Label> listaEjecucion = new ListView<>();
