@@ -1,10 +1,9 @@
 public class Proceso {
-    private static int contadorPID = 1;
-    private int pid;
-    private String nombre;
-    private int memoriaRequerida; // en MB
-    private int duracion; // en segundos
-    private Estado estado;
+    private static int contadorId = 1;
+    private final int pid;//Identificador único del proceso
+    private final String nombre;//Nombre del proceso
+    private final int memoria;//en MB
+    private final int duracion;//en segundos
 
     public enum Estado {
         EN_ESPERA,
@@ -15,20 +14,29 @@ public class Proceso {
     public Proceso(String nombre, int memoriaRequerida, int duracion) {
         this.pid = contadorPID++;
         this.nombre = (nombre == null || nombre.isEmpty()) ? "Proceso-" + pid : nombre;
-        this.memoriaRequerida = memoriaRequerida;
+        this.memoria = memoria;
         this.duracion = duracion;
-        this.estado = Estado.EN_ESPERA;
     }
 
-    public int getPid() { return pid; }
-    public String getNombre() { return nombre; }
-    public int getMemoriaRequerida() { return memoriaRequerida; }
-    public int getDuracion() { return duracion; }
-    public Estado getEstado() { return estado; }
-    public void setEstado(Estado estado) { this.estado = estado; }
+    
+    public int getMemoria() {
+        return memoria;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getPid() {
+        return pid;
+    }
 
     @Override
     public String toString() {
-        return nombre + " (PID: " + pid + ", " + memoriaRequerida + "MB, " + estado + ")";
+        return String.format("[%d] %s - %dMB - %ds", pid, nombre, memoria, duracion);
     }
 }
