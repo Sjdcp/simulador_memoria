@@ -11,7 +11,7 @@ public class Proceso {
         EN_EJECUCION,
         FINALIZADO
     }
-
+// en proceso
     public Proceso(String nombre, int memoriaRequerida, int duracion) {
         this.pid = contadorPID++;
         this.nombre = (nombre == null || nombre.isEmpty()) ? "Proceso-" + pid : nombre;
